@@ -24,15 +24,15 @@ export default function Home({ allPostsData }) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Recent Posts</h2>
-        <ul>
+        <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => {
             return (
               <li className={utilStyles.listItem} key={id}>
-                {title}
+                <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link>
                 <br />
-                {id}
-                <br />
-                {date}
+                <small className={utilStyles.lightText}>{date}</small>
               </li>
             );
           })}
